@@ -7,13 +7,27 @@ class HomeScreenView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBarWidget(title: "Home"),
-      body: Container(
-        color: const Color.fromARGB(255, 255, 255, 255),
-        child: Text("HomeScreen"),
+    return DefaultTabController(
+      length: 2, // Tab数量
+      child: Scaffold(
+        appBar: AppBarWidget(
+          title: "Home",
+          bottom: TabBar(
+            dividerColor: Colors.red,
+            tabs: [
+              Tab(child: Text("推荐")),
+              Tab(child: Text("热门")),
+            ],
+          ),
+        ),
+        body: TabBarView(
+          children: [
+            Center(child: Text("推荐")),
+            Center(child: Text("热门")),
+          ],
+        ),
+        bottomNavigationBar: FooterBar(currentIndex: 0),
       ),
-      bottomNavigationBar: FooterBar(currentIndex: 0),
     );
   }
 }
