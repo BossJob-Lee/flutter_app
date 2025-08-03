@@ -19,7 +19,7 @@ class FooterBar extends StatelessWidget {
         }
 
         if (index == 0) {
-          Navigator.pushNamed(context, '/home');
+          Navigator.pushNamedAndRemoveUntil(context, '/home', (route) => false);
         } else if (index == 1) {
           Navigator.pushNamed(context, '/setting');
         }
